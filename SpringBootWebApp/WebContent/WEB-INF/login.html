@@ -1,0 +1,43 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#cli").click(function(){
+    	//alert('btn click');
+    	//get data from textbox
+    	var username = $('#usernameId').val();
+ 	
+   
+    	var password = $('#pwdId').val();
+    	alert(username);
+    	$.ajax({url: "http://localhost:8080/SpringBootRestApi/api/login/"+username+"/"+password+"", success: function(result){
+        	debugger;
+        	alert("login success");
+        location.href = "postmessage.html"; 
+        $("#result").innerHtml("success");
+        }});
+    });
+});
+</script>
+
+</head>
+<body>
+
+<label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id ="usernameId" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id ="pwdId" required>
+
+    <button id="cli" type="submit"  onclick="loadDoc()" >Login</button>
+  <div id="result" >
+  
+  </div>
+
+</body> 
+</html>

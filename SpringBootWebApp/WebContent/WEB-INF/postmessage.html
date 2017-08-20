@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	//alert();
+    $('#postmessage').click(function(){
+   // alert('clikced')
+    	 	$.ajax({
+    	 		url: "http://localhost:8081/SpringBootRestApi/api/postMessage/",
+    	 	
+    	    type: 'POST',//Accept: application/json,//Accept-Encoding: gzip, deflate,
+
+
+    	    contentType: 'application/json',
+
+    	    data:'{"id":1,"message":"archana"}',
+    		
+    		success: function(result){
+    
+        	alert("success");
+        },error:function(a,b,c)
+        {
+        	alert(c);
+        	alert(b);
+        }
+    	 	});
+    });
+    });
+</script>
+
+</head>
+<body>
+
+<label><b>Message</b></label>
+    <input type="text" placeholder="Enter message"   multiple="multiple"  id ="msgid" required>
+    <button id="postmessage" type="submit" >Post messages</button>
+  <div id="result" >
+  
+  </div>
+
+</body> 
+</html>
